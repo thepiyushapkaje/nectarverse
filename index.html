@@ -3,238 +3,700 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nectarverse | App Development Studio</title>
+  <title>Nectarverse | Premium Mobile App Development Studio</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: #0f131f;
+      --card-border: #1e2436;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-orange: #f97316;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: #0d0e15;
-      color: #e2e8f0;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
     }
 
+    /* Ambient Glow Background Effects */
+    .glow-1 {
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+      z-index: -1;
+    }
+
+    .glow-2 {
+      position: absolute;
+      top: 300px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, rgba(0,0,0,0) 70%);
+      z-index: -1;
+    }
+
+    /* Header & Navbar */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 8%;
-      border-bottom: 1px solid #1e202e;
+      position: sticky;
+      top: 0;
+      background: rgba(7, 9, 14, 0.8);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      text-decoration: none;
     }
 
-    /* Styled N logo inspired by your dashboard */
     .logo-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #4d2161, #e0565b);
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #5b21b6, #f97316);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
+      font-weight: 800;
       color: #ffffff;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.2);
     }
 
     .brand-name {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: 800;
       color: #ffffff;
       letter-spacing: -0.5px;
     }
 
-    .cta-btn {
-      background: linear-gradient(135deg, #7c3aed, #db2777);
-      color: #fff;
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-muted);
       text-decoration: none;
+      font-size: 0.95rem;
       font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+    }
+
+    .btn-nav {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-orange));
+      color: #fff !important;
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
       transition: transform 0.2s, opacity 0.2s;
     }
 
-    .cta-btn:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
+    .btn-nav:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
     }
 
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 5rem 1rem 3rem;
-      max-width: 800px;
+      padding: 7rem 8% 4rem;
+      max-width: 900px;
       margin: 0 auto;
     }
 
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.4rem 1rem;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 30px;
+      color: #a78bfa;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
     .hero h1 {
-      font-size: 3.2rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
-      line-height: 1.2;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
       font-size: 1.25rem;
-      color: #94a3b8;
-      margin-bottom: 2rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .projects {
-      padding: 4rem 8%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-      color: #ffffff;
-    }
-
-    .app-card {
-      background: #161824;
-      border: 1px solid #282b3d;
-      border-radius: 16px;
-      padding: 2rem;
+    .hero-buttons {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
+      justify-content: center;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .app-info h3 {
-      font-size: 1.6rem;
-      color: #fff;
-      margin-bottom: 0.4rem;
-
-    }
-
-    .app-package {
-      font-family: monospace;
-      color: #a78bfa;
-      font-size: 0.9rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .app-desc {
-      color: #94a3b8;
-      max-width: 500px;
-      font-size: 0.95rem;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.35rem 0.8rem;
-      background: rgba(234, 179, 8, 0.15);
-      color: #fde047;
-      border: 1px solid rgba(234, 179, 8, 0.3);
-      border-radius: 20px;
-      font-size: 0.85rem;
+    .btn-secondary {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.8rem 1.8rem;
+      border-radius: 10px;
       font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s;
     }
 
-    .services {
-      padding: 4rem 8%;
-      background-color: #12131c;
-      border-top: 1px solid #1e202e;
+    .btn-secondary:hover {
+      border-color: var(--accent-purple);
     }
 
-    .grid {
+    /* Stats Bar */
+    .stats-bar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 2rem;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+      padding: 2rem;
+      background: rgba(15, 19, 31, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .stat-item p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Sections Shared Styling */
+    section {
+      padding: 6rem 8%;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .card {
-      background-color: #181a26;
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid #282b3d;
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
     }
 
-    .card h3 {
-      color: #f472b6;
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Apps Showcase */
+    .app-card {
+      background: linear-gradient(145deg, #0f131f, #14192a);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 850px) {
+      .app-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .app-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .app-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.3rem 0.8rem;
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      color: #fde047;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .app-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .app-id {
+      font-family: monospace;
+      color: var(--accent-purple);
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .app-desc {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .app-preview-box {
+      background: #090b12;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .app-icon-mock {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-purple);
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(139, 92, 246, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--accent-purple);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
       margin-bottom: 0.8rem;
     }
 
-    .card p {
-      color: #94a3b8;
+    .service-card p {
+      color: var(--text-muted);
       font-size: 0.95rem;
     }
 
+    /* Work Process */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: rgba(15, 19, 31, 0.4);
+      border: 1px solid var(--card-border);
+      padding: 1.8rem;
+      border-radius: 14px;
+      position: relative;
+    }
+
+    .step-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+
+    .step-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-orange);
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact & Form Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 3.5rem;
+    }
+
+    @media (max-width: 850px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+      }
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 10px;
+      background: #181d2d;
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .social-icon:hover {
+      background: var(--accent-purple);
+      color: #fff;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      background: #080a11;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--accent-purple);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-orange));
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.2);
+    }
+
+    /* Footer */
     footer {
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 8%;
       text-align: center;
-      padding: 2.5rem;
-      border-top: 1px solid #1e202e;
-      color: #64748b;
+      color: var(--text-muted);
       font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-top: 0.5rem;
     }
   </style>
 </head>
 <body>
 
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <!-- Navbar -->
   <header>
-    <div class="brand">
+    <a href="#" class="brand">
       <div class="logo-mark">N</div>
       <span class="brand-name">nectarverse</span>
-    </div>
-    <a href="mailto:contact@nectarverse.com" class="cta-btn">Contact Us</a>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Our Apps</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="btn-nav">Build With Us</a>
+    </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Building Digital Products People Love</h1>
-    <p>Nectarverse is an independent app development studio focused on designing sleek, intuitive mobile experiences.</p>
+    <div class="badge-pill">
+      <i class="fa-solid fa-bolt"></i> Custom Mobile & Web Development
+    </div>
+    <h1>We Build <span class="gradient-text">High-Performance</span> Mobile Applications</h1>
+    <p>From strategic design to full production code. Nectarverse helps entrepreneurs and businesses turn ambitious app ideas into scalable digital reality.</p>
+
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-nav" style="padding: 0.9rem 2rem; font-size: 1rem;">Have an App Idea? Let's Talk</a>
+      <a href="#portfolio" class="btn-secondary">Explore Our Showcase</a>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Native & Cross-Platform</p>
+      </div>
+      <div class="stat-item">
+        <h3>Android/iOS</h3>
+        <p>Production Standard</p>
+      </div>
+      <div class="stat-item">
+        <h3>End-to-End</h3>
+        <p>Design to Deployment</p>
+      </div>
+    </div>
   </section>
 
-  <section class="projects">
-    <h2 class="section-title">Current Projects</h2>
-    
-    <!-- Habitly App Featured Card -->
+  <!-- Showcase / Portfolio -->
+  <section id="portfolio">
+    <div class="section-header">
+      <h2>In-House Products</h2>
+      <p>Check out what we're currently designing and testing internally.</p>
+    </div>
+
     <div class="app-card">
-      <div class="app-info">
-        <span class="badge">Closed Testing</span>
-        <h3 style="margin-top: 0.8rem;">Habitly</h3>
-        <div class="app-package">com.nextbigthing.habitly</div>
-        <p class="app-desc">A modern habit-tracking mobile application designed to help users build routines, stay consistent, and reach daily personal goals.</p>
-      </div>
       <div>
-        <a href="#" class="cta-btn" style="background: #26293b; border: 1px solid #3b3f5c;">Request Beta Access</a>
+        <div class="app-status"><i class="fa-solid fa-flask"></i> Closed Testing Phase</div>
+        <h3 class="app-title">Habitly</h3>
+        <div class="app-id"><i class="fa-brands fa-google-play"></i> com.nextbigthing.habitly</div>
+        <p class="app-desc">A smart, minimal habit tracker designed to help users build consistency, analyze daily goals, and improve productivity through intuitive visualizations.</p>
+        <a href="#contact" class="btn-secondary"><i class="fa-solid fa-user-plus"></i> Join Beta Tester List</a>
+      </div>
+
+      <div class="app-preview-box">
+        <div class="app-icon-mock">
+          <i class="fa-solid fa-check-double"></i>
+        </div>
+        <h4 style="color: #fff; margin-bottom: 0.4rem;">Habitly App</h4>
+        <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 200px;">Internal Testing Build active on Google Play Console</p>
       </div>
     </div>
   </section>
 
-  <section class="services">
-    <h2 class="section-title" style="text-align: center;">Our Capabilities</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Android & iOS Development</h3>
-        <p>Creating robust native and cross-platform applications built with performance and scaling in mind.</p>
+  <!-- Client Services -->
+  <section id="services">
+    <div class="section-header">
+      <h2>Want to Build an App for Yourself?</h2>
+      <p>We take care of every layer of the app development lifecycle.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <h3>Mobile App Development</h3>
+        <p>Custom Android and iOS applications built with Flutter or React Native for fluid performance and modern aesthetics.</p>
       </div>
-      <div class="card">
-        <h3>Product Design</h3>
-        <p>Crafting intuitive user interfaces and seamless user flows tailored for modern mobile devices.</p>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+        <h3>UI/UX Experience Design</h3>
+        <p>Clean, sleek interfaces designed in Figma to make sure your users stay engaged and enjoy using your application.</p>
       </div>
-      <div class="card">
-        <h3>Beta Testing & Launch</h3>
-        <p>Iterating rapidly through closed testing phases to deliver polished, bug-free applications.</p>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+        <h3>Backend & APIs</h3>
+        <p>Scalable cloud infrastructure using Firebase, Node.js, and SQL/NoSQL databases to manage authentication and cloud data.</p>
       </div>
     </div>
   </section>
 
+  <!-- Development Process -->
+  <section id="process">
+    <div class="section-header">
+      <h2>How We Turn Your Idea into an App</h2>
+      <p>A simple step-by-step roadmap for custom client builds.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <h4>Discovery</h4>
+        <p>We map out your features, target audience, and app structure.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <h4>UI Design</h4>
+        <p>Interactive Figma wireframes designed for optimal mobile UX.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <h4>Development</h4>
+        <p>Clean, high-performance code built and linked to backend services.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">04</span>
+        <h4>Play Store Launch</h4>
+        <p>Testing, bug fixes, and publishing your app live for users.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Lead Capture -->
+  <section id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Let's build something awesome together.</h3>
+        <p>Have a business idea or need a mobile application developed? Reach out and let's turn your concept into reality.</p>
+        
+        <p style="color: #fff; font-weight: 600;"><i class="fa-solid fa-envelope" style="color: var(--accent-orange); margin-right: 8px;"></i> contact@nectarverse.com</p>
+
+        <div class="social-links">
+          <a href="#" class="social-icon" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/xbjnqpyz" method="POST">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" rows="4" placeholder="Tell us about your app idea..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Send Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Nectarverse • Account ID: 7382214315082302550</p>
+    <div class="brand" style="justify-content: center; margin-bottom: 1rem;">
+      <div class="logo-mark" style="width: 30px; height: 30px; font-size: 1rem;">N</div>
+      <span class="brand-name" style="font-size: 1.2rem;">nectarverse</span>
+    </div>
+    <p>&copy; 2026 Nectarverse Studio. All rights reserved.</p>
   </footer>
 
 </body>
