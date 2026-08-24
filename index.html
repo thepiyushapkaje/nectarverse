@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nectarverse | App Development Studio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: #0d0e15;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 8%;
+      border-bottom: 1px solid #1e202e;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Styled N logo inspired by your dashboard */
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4d2161, #e0565b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #ffffff;
+      font-size: 1.2rem;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #7c3aed, #db2777);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .cta-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      margin-bottom: 2rem;
+    }
+
+    .projects {
+      padding: 4rem 8%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+
+    .app-card {
+      background: #161824;
+      border: 1px solid #282b3d;
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .app-info h3 {
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+
+    }
+
+    .app-package {
+      font-family: monospace;
+      color: #a78bfa;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .app-desc {
+      color: #94a3b8;
+      max-width: 500px;
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      background: rgba(234, 179, 8, 0.15);
+      color: #fde047;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .services {
+      padding: 4rem 8%;
+      background-color: #12131c;
+      border-top: 1px solid #1e202e;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #181a26;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #282b3d;
+    }
+
+    .card h3 {
+      color: #f472b6;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid #1e202e;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo-mark">N</div>
+      <span class="brand-name">nectarverse</span>
+    </div>
+    <a href="mailto:contact@nectarverse.com" class="cta-btn">Contact Us</a>
+  </header>
+
+  <section class="hero">
+    <h1>Building Digital Products People Love</h1>
+    <p>Nectarverse is an independent app development studio focused on designing sleek, intuitive mobile experiences.</p>
+  </section>
+
+  <section class="projects">
+    <h2 class="section-title">Current Projects</h2>
+    
+    <!-- Habitly App Featured Card -->
+    <div class="app-card">
+      <div class="app-info">
+        <span class="badge">Closed Testing</span>
+        <h3 style="margin-top: 0.8rem;">Habitly</h3>
+        <div class="app-package">com.nextbigthing.habitly</div>
+        <p class="app-desc">A modern habit-tracking mobile application designed to help users build routines, stay consistent, and reach daily personal goals.</p>
+      </div>
+      <div>
+        <a href="#" class="cta-btn" style="background: #26293b; border: 1px solid #3b3f5c;">Request Beta Access</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2 class="section-title" style="text-align: center;">Our Capabilities</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Android & iOS Development</h3>
+        <p>Creating robust native and cross-platform applications built with performance and scaling in mind.</p>
+      </div>
+      <div class="card">
+        <h3>Product Design</h3>
+        <p>Crafting intuitive user interfaces and seamless user flows tailored for modern mobile devices.</p>
+      </div>
+      <div class="card">
+        <h3>Beta Testing & Launch</h3>
+        <p>Iterating rapidly through closed testing phases to deliver polished, bug-free applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Nectarverse • Account ID: 7382214315082302550</p>
+  </footer>
+
+</body>
+</html>
